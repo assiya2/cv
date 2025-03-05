@@ -1,0 +1,7 @@
+.container {
+    display: flex;
+    flex-direction: column; /* Si les composants sont empilés */
+    gap: 0; /* Supprime l'espacement entre les éléments */
+  }
+ 
+  

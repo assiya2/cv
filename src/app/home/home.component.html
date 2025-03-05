@@ -1,0 +1,29 @@
+<div class="background">
+  <div class="container">
+    <!-- Colonne gauche : description avec animation -->
+    <div class="text-container">
+     
+      <div class="text-container">
+        <h1 class="display-4 fw-bold text-primary">
+          <span id="animatedText">{{ animatedText }}</span>
+        </h1>
+       
+      </div>
+      
+    </div>
+
+    <!-- Colonne droite : boutons -->
+    <div class="buttons-container">
+      <button 
+        class="btn btn-lg btn-primary shadow px-4 py-2 mt-4 mx-2" 
+        (click)="onRegister()">
+        Inscription
+      </button>
+      <button 
+        class="btn btn-lg btn-outline-primary shadow px-4 py-2 mt-4 mx-2" 
+        (click)="onLogin()">
+        Connexion
+      </button>
+    </div>
+  </div>
+</div>

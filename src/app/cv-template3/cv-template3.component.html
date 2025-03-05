@@ -1,0 +1,95 @@
+<div class="cv-container" [ngStyle]="{'background-color': cvData.backgroundColor}" #cvElement>
+    
+    <!-- Partie gauche (30% de la page) -->
+    <div 
+    class="side-section" 
+    [ngStyle]="{'background-color': cvData.sideBackgroundColor}">
+      <div class="cv-photo">
+        <img [src]="cvData.photo" alt="Photo" />
+      </div>
+      <h3>Post</h3>
+        <p>{{ cvData.jobTitle }}</p>
+  
+      <div class="cv-section" class="bullet-list">
+        <h2 [ngStyle]="{'color': cvData.sectionTitleColor}">Compétences</h2>
+        <ul>
+          <li *ngFor="let skill of cvData.skills">{{ skill.name }}</li>
+        </ul>
+      </div>
+      <div class="cv-section" class="bullet-list">
+        <h2 [ngStyle]="{'color': cvData.sectionTitleColor}">Langues</h2>
+        <ul>
+          <li *ngFor="let lang of cvData.languages">
+            {{ lang.language }} - {{ lang.level }}
+          </li>
+        </ul>
+      </div>
+      <div class="cv-section" class="bullet-list">
+        <h2 [ngStyle]="{'color': cvData.sectionTitleColor}">Centres d'intrer</h2>
+        <ul>
+          <li *ngFor="let interest of cvData.interests">{{ interest }}</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Partie droite (70% de la page) -->
+    <div class="cv-right">
+      <div class="cv-section">
+        <div class="cv-header">
+            <h2>{{ cvData.name }}</h2>
+            <p>{{ cvData.jobTitle }}</p>
+            <p>Email: {{ cvData.email }}</p>
+            <p>Téléphone: {{ cvData.phone }}</p>
+            <p>Adresse: {{ cvData.address }}</p>
+          </div>
+          <h3>Profil</h3>
+          <p>{{ cvData.profile }}</p>
+        
+      </div>
+  
+      <div class="cv-section">
+        <h2 [ngStyle]="{ 'color': cvData.sectionTitleColor, 'font-family': cvData.fontFamily }"> Formation
+        </h2>
+        <ul>
+          <li *ngFor="let edu of cvData.education">
+            <p>{{ edu.degree }} - {{ edu.school }} ({{ edu.year }})</p>
+          </li>
+        </ul>
+      </div>
+  
+      <div class="cv-section" >
+        <h2 [ngStyle]="{ 'color': cvData.sectionTitleColor, 'font-family': cvData.fontFamily }"> Expérience
+        </h2>
+        <ul>
+          <li *ngFor="let exp of cvData.experience">
+            <p>{{ exp.title }} - {{ exp.company }} ({{ exp.year }})</p>
+          </li>
+        </ul>
+      </div>
+  
+      <div class="cv-section">
+        <h2 [ngStyle]="{ 'color': cvData.sectionTitleColor, 'font-family': cvData.fontFamily }"> Projets
+        </h2>
+        <ul>
+          <li *ngFor="let proj of cvData.projects">
+            <p>{{ proj.title }} - {{ proj.description }}</p>
+          </li>
+        </ul>
+      </div>
+      <div *ngIf="cvData.customSections.length > 0">
+        <div *ngFor="let custom of cvData.customSections">
+          <div class="section-content">
+            <h2 [ngStyle]="{ 'color': cvData.sectionTitleColor, 'font-family': cvData.fontFamily }"> {{ custom.title }}
+            </h2>
+            <p>{{ custom.content }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div>
+    <button (click)="previewCV(cvElement)">Voir le CV</button>
+    <button  (click)="shareCV()">Partager</button>
+  
+    <button (click)="downloadPDFAndSave(cvElement)">Télécharger en PDF et envoyer-le au rh</button>
+  </div>

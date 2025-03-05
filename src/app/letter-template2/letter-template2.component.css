@@ -1,0 +1,41 @@
+.letter-template {
+    width: 800px;
+    min-height: 600px;
+    padding: 20px;
+    margin: 20px auto;
+    background-color: #fdfdfd;
+    border: 0px solid #444;
+    border-radius: 10px;
+   
+  }
+  
+  .letter-header {
+    text-align: justify; /* Justifie le texte */
+    font-size: 14px; /* Taille de police ajustée */
+    margin-bottom: 20px; /* Espacement avec le contenu suivant */
+    line-height: 1.6; /* Hauteur de ligne pour une meilleure lisibilité */
+    display: flex; /* Utilise flexbox pour l'alignement */
+    flex-direction: column; /* Aligne verticalement les éléments */
+  }
+  
+  .letter-header p {
+    margin: 5px 0; /* Espacement entre les paragraphes */
+  }
+  
+  .letter-header strong {
+    font-weight: bold; /* Met les titres en gras */
+    color: #444; /* Une couleur légèrement grisée pour le titre */
+  }
+  
+  
+  .letter-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .letter-content {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  

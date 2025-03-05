@@ -1,0 +1,200 @@
+<div class="template-list" *ngIf="selectedTemplateIndex === null" class="form-container">
+  <h2>Choisissez un modèle pour commencer</h2>
+  <div class="template-row">
+    <div *ngFor="let template of templates; let i = index" class="template-item" (click)="selectTemplate(i)" [class.selected]="i === selectedTemplateIndex">
+      <img [src]="template.image" [alt]="template.name" />
+      <p>{{ template.name }}</p>
+    </div>
+  </div>
+</div>
+
+<div class="cv-container">
+  <form class="form1" (ngSubmit)="onSubmit()">
+    <div class="customization-form"></div>
+    
+    <div>
+      <label>Police des titres</label>
+      <select [(ngModel)]="cvData.fontFamily" name="fontFamily" required>
+        <option value="Arial">Arial</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Georgia">Georgia</option>
+      </select>
+    </div>
+    <div>
+      <label>Couleur des titres de section</label>
+      <input type="color" [(ngModel)]="cvData.sectionTitleColor" name="sectionTitleColor" required />
+    </div>
+    <div>
+      <label>Couleur de fond du CV</label>
+      <input type="color" [(ngModel)]="cvData.backgroundColor" name="backgroundColor" required />
+    </div>
+    <div>
+      <label>Couleur de fond de la première partie (30%)</label>
+      <input type="color" [(ngModel)]="cvData.sideBackgroundColor" name="sideBackgroundColor" required />
+    </div>
+    <div>
+      <h3>Personnalisation de la partie principale</h3>
+      <label>Couleur de fond (60%)</label>
+      <input type="color" [(ngModel)]="cvData.mainSectionBackgroundColor" name="mainSectionBackgroundColor" required />
+    </div>
+    
+    <div>
+      <h3>Personnalisation des titres des sections</h3>
+      <label>Couleur de fond des titres</label>
+      <input type="color" [(ngModel)]="cvData.sectionTitleBackgroundColor" name="sectionTitleBackgroundColor" required />
+    </div>
+  </form>
+
+  <!-- Affichage du modèle sélectionné -->
+  <div class="cv-preview">
+    <ng-container [ngSwitch]="selectedTemplateIndex">
+      <app-cv-template *ngSwitchCase="0" [cvData]="cvData"></app-cv-template>
+      <app-cv-template2 *ngSwitchCase="1" [cvData]="cvData"></app-cv-template2>
+      <app-cv-template3 *ngSwitchCase="2" [cvData]="cvData"></app-cv-template3>
+      <app-cv-template4 *ngSwitchCase="3" [cvData]="cvData"></app-cv-template4>
+    </ng-container>
+  </div>
+
+  <div class="cv-form">
+    <h2>Création de CV</h2>
+    <form #cvForm="ngForm" (ngSubmit)="onSubmit()">
+      <!-- Nom et Email -->
+      <div>
+        <label for="name">Nom</label>
+        <input type="text" id="name" [(ngModel)]="cvData.name" name="name" required #name="ngModel" />
+        <div *ngIf="name.invalid && name.touched" class="error-message">Le nom est requis.</div>
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" [(ngModel)]="cvData.email" name="email" required email #email="ngModel" />
+        <div *ngIf="email.invalid && email.touched" class="error-message">
+          <div *ngIf="email.errors?.['required']">L'email est requis.</div>
+          <div *ngIf="email.errors?.['email']">Veuillez entrer un email valide.</div>
+        </div>
+      </div>
+      <div>
+        <label for="phone">Téléphone</label>
+        <input type="tel" id="phone" [(ngModel)]="cvData.phone" name="phone" required pattern="^\+?[0-9]{10,15}$" #phone="ngModel" />
+        <div *ngIf="phone.invalid && phone.touched" class="error-message">
+          <div *ngIf="phone.errors?.['required']">Le téléphone est requis.</div>
+          <div *ngIf="phone.errors?.['pattern']">Veuillez entrer un numéro de téléphone valide.</div>
+        </div>
+      </div>
+
+      <!-- Adresse -->
+      <div>
+        <label for="address">Adresse</label>
+        <input type="text" id="address" [(ngModel)]="cvData.address" name="address" required #address="ngModel" />
+        <div *ngIf="address.invalid && address.touched" class="error-message">L'adresse est requise.</div>
+      </div>
+
+      <label for="photo">Télécharger une photo</label>
+      <input type="file" id="photo" (change)="onPhotoSelected($event)" />
+
+      <!-- Photo Position -->
+      <div>
+        <label>Position de la photo</label>
+        <div>
+          <button type="button" (click)="changePhotoPosition('left')">Gauche</button>
+          <button type="button" (click)="changePhotoPosition('center')">Centre</button>
+          <button type="button" (click)="changePhotoPosition('right')">Droite</button>
+          <button type="button" (click)="deletePhoto()">Supprimer la photo</button>
+        </div>
+      </div>
+
+      <!-- Intitulé de poste -->
+      <div>
+        <label for="jobTitle">Intitulé de poste</label>
+        <input type="text" id="jobTitle" [(ngModel)]="cvData.jobTitle" name="jobTitle" required #jobTitle="ngModel" />
+        <div *ngIf="jobTitle.invalid && jobTitle.touched" class="error-message">L'intitulé du poste est requis.</div>
+      </div>
+
+      <!-- Profil -->
+      <div>
+        <label for="profil">Profil</label>
+        <input type="text" id="profil" [(ngModel)]="cvData.profil" name="profil" required #profil="ngModel" />
+        <div *ngIf="profil.invalid && profil.touched" class="error-message">Le profil est requis.</div>
+      </div>
+
+      <!-- Expérience -->
+      <div *ngFor="let exp of cvData.experience; let i = index">
+        <h3>Expérience {{i + 1}}</h3>
+        
+        <label for="company">Entreprise</label>
+        <input type="text" [(ngModel)]="exp.company" name="experienceCompany{{i}}" required />
+        <label for="year">Année</label>
+        <label for="title">Poste</label>
+        <input type="text" [(ngModel)]="exp.title" name="experienceTitle{{i}}" required #expTitle="ngModel" />
+        <div *ngIf="expTitle.invalid && expTitle.touched" class="error-message">Le poste est requis.</div>
+        <input type="text" [(ngModel)]="exp.year" name="experienceYear{{i}}" required />
+        <button type="button" (click)="addExperience()">Ajouter une autre expérience</button>
+        <button type="button" (click)="removeExperience(i)">Supprimer cette expérience</button>
+      </div>
+
+      <!-- Formation -->
+      <div *ngFor="let edu of cvData.education; let i = index">
+        <h3>Formation {{i + 1}}</h3>
+        <label for="degree">Diplôme</label>
+        <input type="text" [(ngModel)]="edu.degree" name="educationDegree{{i}}" required />
+        <label for="school">École</label>
+        <input type="text" [(ngModel)]="edu.school" name="educationSchool{{i}}" required />
+        <label for="year">Année</label>
+        <input type="text" [(ngModel)]="edu.year" name="educationYear{{i}}" required />
+        <button type="button" (click)="addEducation()">Ajouter une autre formation</button>
+        <button type="button" (click)="removeEducation(i)">Supprimer cette formation</button>
+      </div>
+
+      <!-- Compétences -->
+      <div *ngFor="let skill of cvData.skills; let i = index">
+        <h3>Compétence {{i + 1}}</h3>
+        <label for="skill">Compétence</label>
+        <input type="text" [(ngModel)]="skill.name" name="skill{{i}}" required />
+        <button type="button" (click)="addSkill()">Ajouter une autre compétence</button>
+        <button type="button" (click)="removeSkill(i)">Supprimer cette compétence</button>
+      </div>
+
+      <!-- Projets -->
+      <div *ngFor="let proj of cvData.projects; let i = index">
+        <h3>Projet {{i + 1}}</h3>
+        <label for="projectTitle">Titre du projet</label>
+        <input type="text" [(ngModel)]="proj.title" name="projectTitle{{i}}" required />
+        <label for="projectDescription">Description</label>
+        <textarea [(ngModel)]="proj.description" name="projectDescription{{i}}" required></textarea>
+        <button type="button" (click)="addProject()">Ajouter un autre projet</button>
+        <button type="button" (click)="removeProject(i)">Supprimer ce projet</button>
+      </div>
+
+      <!-- Centres d'intérêt -->
+      <div *ngFor="let interest of cvData.interests; let i = index">
+        <h3>Centre d'intérêt {{i + 1}}</h3>
+        <input type="text" [(ngModel)]="cvData.interests[i]" name="interest{{i}}" required />
+        <button type="button" (click)="addInterest()">Ajouter un autre centre d'intérêt</button>
+        <button type="button" (click)="removeInterest(i)">Supprimer ce centre d'intérêt</button>
+      </div>
+
+      <!-- Langues -->
+      <div *ngFor="let lang of cvData.languages; let i = index">
+        <h3>Langue {{i + 1}}</h3>
+        <label for="language">Langue</label>
+        <input type="text" [(ngModel)]="lang.language" name="language{{i}}" required />
+        <label for="level">Niveau</label>
+        <input type="text" [(ngModel)]="lang.level" name="level{{i}}" required />
+        <button type="button" (click)="addLanguage()">Ajouter une autre langue</button>
+        <button type="button" (click)="removeLanguage(i)">Supprimer cette langue</button>
+      </div>
+
+      <!-- Section personnalisée -->
+      <div *ngFor="let custom of cvData.customSections; let i = index">
+        <h3 class="section-title">
+          <input type="text" [(ngModel)]="custom.title" placeholder="Nom de la section" name="customSectionTitle{{i}}" class="editable-title" required />
+        </h3>
+        <label for="sectionContent">Contenu de la section</label>
+        <textarea [(ngModel)]="custom.content" name="customSectionContent{{i}}" required></textarea>
+        <button type="button" (click)="removeCustomSection(i)">Supprimer cette section personnalisée</button>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" [disabled]="cvForm.invalid">Générer le CV</button>
+    </form>
+  </div>
+</div>

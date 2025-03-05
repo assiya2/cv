@@ -1,0 +1,478 @@
+/* Global styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f5f7;
+  color: #333;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* Dashboard Layout */
+.dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+/* Barre latérale */
+.sidebar {
+  width: 250px;
+  background-color: #092989e8;
+  color: #ecf0f1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  margin: 10px 0;
+}
+
+.sidebar ul li a {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 4px;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+  background-color: #9ebfe0;
+}
+
+/* Contenu principal */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.main-content h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+/* Formulaires */
+form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+form input,
+form button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+form button {
+  background-color: #092989e8;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+form button:hover {
+  background-color: #2980b9;
+}
+
+/* Résultats */
+.cv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cv-header a {
+  font-size: 16px;
+  color: #3498db;
+  text-decoration: none;
+}
+
+.cv-header a:hover {
+  text-decoration: underline;
+}
+
+.cv-header button {
+  padding: 5px 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cv-header button:hover {
+  background-color: #2980b9;
+}
+
+/* Comparaison */
+#comparison ul {
+  list-style: none;
+  padding: 0;
+}
+
+#comparison li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#comparison li input {
+  margin-right: 10px;
+}
+
+#comparison button {
+  padding: 10px 20px;
+  background-color: #27ae60;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#comparison button:hover {
+  background-color: #1e8449;
+}
+/* Liste des CVs disponibles */
+#cv-list {
+  margin-top: 20px;
+}
+
+#cv-list h3 {
+  font-size: 20px;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+#cv-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+#cv-list li {
+  margin-bottom: 10px;
+}
+
+#cv-list a {
+  font-size: 16px;
+  color: #3498db;
+  text-decoration: none;
+}
+
+#cv-list a:hover {
+  text-decoration: underline;
+}
+.alert {
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Style pour les alertes de succès */
+.alert.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+#cvComparisonChart {
+  margin: 20px auto;
+  max-width: 600px;
+}
+input[type="range"] {
+  width: 100%;
+  margin: 10px 0;
+}
+
+
+/* Style pour les alertes d'erreur */
+.alert.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+.cv-list {
+  font-family: 'Open Sans', sans-serif;
+  margin: 40px auto;
+  padding: 20px;
+  max-width: 1200px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cv-list h1 {
+  text-align: center;
+  font-size: 2.4rem;
+  color: #2e4053;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.cv-list ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.cv-list li {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  width: 280px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cv-list li:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.cv-list h3 {
+  font-size: 1.6rem;
+  color: #0841a2;
+  margin-bottom: 10px;
+}
+
+.cv-list p {
+  font-size: 1rem;
+  color: #1d1f20;
+  margin: 5px 0;
+}
+
+.cv-list a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #dae9e9;
+  text-decoration: none;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.cv-list a:hover {
+  background-color: #fafeff;
+}
+.cv-details {
+  margin: 20px auto;
+  width: 80%;
+  max-width: 600px;
+  font-family: Arial, sans-serif;
+  border-collapse: collapse;
+}
+
+.cv-details table {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+.cv-details th {
+  text-align: left;
+  background-color: #051a8e;
+  color: white;
+  padding: 12px;
+}
+
+.cv-details td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  color: #333;
+}
+
+.cv-details tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.cv-details tr:last-child td {
+  border-bottom: none;
+}
+
+.cv-details tr:hover {
+  background-color: #e9f7ff;
+}
+
+.cv-details th, .cv-details td {
+  text-align: left;
+}
+
+.cv-details th {
+  font-weight: bold;
+}
+
+.cv-details td {
+  font-size: 14px;
+}
+/* Style global des sliders */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(to right, #3934db, #2980b9);
+  border-radius: 5px;
+  outline: none;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effet au survol du slider */
+input[type="range"]:hover {
+  background: linear-gradient(to right, #2980b9, #3498db);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Personnalisation de la "thumb" (bouton du slider) */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #3498db;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Changement de couleur et effet au survol de la "thumb" */
+input[type="range"]:hover::-webkit-slider-thumb {
+  background: #3498db;
+  border-color: #2980b9;
+  transform: scale(1.2);
+}
+
+/* Pour Firefox */
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(to right, #3498db, #2980b9);
+  border-radius: 5px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #3498db;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Changement de couleur et effet au survol de la "thumb" */
+input[type="range"]:hover::-moz-range-thumb {
+  background: #3498db;
+  border-color: #2980b9;
+  transform: scale(1.2);
+}
+
+/* Affichage de la valeur du slider */
+label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #0c36e0;
+  margin-left: 10px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease;
+}
+
+.modal.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  text-align: center;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+.contact-button {
+  background-color: #02198b; /* Couleur de fond verte */
+  color: white; /* Couleur du texte */
+  padding: 12px 24px; /* Espacement interne */
+  font-size: 16px; /* Taille de la police */
+  border: none; /* Supprimer la bordure par défaut */
+  border-radius: 8px; /* Bordure arrondie */
+  cursor: pointer; /* Pointeur lors du survol */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Effet de transition */
+}
+
+.contact-button:hover {
+  background-color: #072093; /* Changer la couleur de fond au survol */
+  transform: scale(1.05); /* Légère augmentation de la taille du bouton */
+}
+
+.contact-button:active {
+  background-color: #160392; /* Couleur de fond au clic */
+}

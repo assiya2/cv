@@ -1,0 +1,13 @@
+
+
+<div class="cv-list">
+  <h2>Liste des CV</h2>
+  <div *ngIf="cvs.length === 0">Aucun CV disponible.</div>
+  <ul>
+    <li *ngFor="let cv of cvs">
+      <a [href]="'http://localhost:5000' + cv.filepath" target="_blank">
+        {{ cv.filename }}
+      </a>
+    </li>
+  </ul>
+</div>

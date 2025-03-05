@@ -1,0 +1,20 @@
+<div>
+  <h2>Bonjour {{ user.name }}</h2>
+
+  <div *ngIf="!isEditing">
+    <img *ngIf="user.profilePhoto" [src]="user.profilePhoto" alt="Photo de profil" />
+    <p>Nom: {{ user.name }}</p>
+    <p>Email: {{ user.email }}</p>
+    <button (click)="editProfile()">Modifier le profil</button>
+  </div>
+
+  <form *ngIf="isEditing" (ngSubmit)="saveChanges()">
+    <label for="name">Nom:</label>
+    <input id="name" [(ngModel)]="user.name" name="name" required />
+    <label for="email">Email:</label>
+    <input id="email" [(ngModel)]="user.email" name="email" required />
+    <label for="photo">Photo de profil:</label>
+    <input type="file" (change)="onPhotoSelected($event)" />
+    <button type="submit">Sauvegarder les modifications</button>
+  </form>
+</div>

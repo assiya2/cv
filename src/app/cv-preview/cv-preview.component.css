@@ -1,0 +1,91 @@
+/* Conteneur principal */
+.choose-container {
+ /* Dégradé bleu et violet */
+  color: #0e0d0d; /* Texte blanc */
+  padding: 40px 20px; /* Espacement interne */
+  border-radius: 15px; /* Coins arrondis */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ombre pour un effet en relief */
+  text-align: center; /* Centrer le texte et les éléments */
+  width: 100%; /* Prendre toute la largeur de la page */
+  height: 100vh; /* Prendre toute la hauteur visible de la page */
+  display: flex; /* Flexbox pour aligner les éléments */
+  flex-direction: column; /* Empiler les éléments verticalement */
+  justify-content: center; /* Centrer verticalement */
+  align-items: center; /* Centrer horizontalement */
+}
+/* Conteneur principal */
+.choose-container {
+  background: linear-gradient(to bottom right, #fafafa, #ffffff); /* Dégradé bleu et violet */
+  color: #191818; /* Texte blanc */
+  padding: 40px 20px; /* Espacement interne */
+  border-radius: 15px; /* Coins arrondis */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ombre pour un effet en relief */
+  text-align: center; /* Centrer le texte et les éléments */
+  width: 98%; /* Prendre toute la largeur de la page */
+  height: 80vh; /* Prendre toute la hauteur visible de la page */
+  display: flex; /* Flexbox pour aligner les éléments */
+  flex-direction: column; /* Empiler les éléments verticalement */
+  justify-content: center; /* Centrer verticalement */
+  align-items: center; /* Centrer horizontalement */
+}
+
+/* Style du titre */
+.choose-container h1 {
+  font-family: 'Poppins', sans-serif; /* Police moderne */
+  font-size: 2rem; /* Taille du texte */
+  font-weight: 700; /* Poids gras */
+  margin-bottom: 20px; /* Espacement sous le titre */
+  letter-spacing: 1px; /* Espacement des lettres */
+}
+
+/* Conteneur des boutons */
+.choose-container .options {
+  display: flex;
+  flex-direction: column; /* Aligner les boutons verticalement */
+  gap: 15px; /* Espacement entre les boutons */
+  margin-top: 20px; /* Espacement au-dessus des boutons */
+}
+
+/* Style des boutons */
+.choose-container .btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem; /* Taille du texte */
+  font-weight: 600; /* Texte semi-gras */
+  color: #ffffff; /* Texte blanc */
+  background: #0521f6; /* Couleur de fond violet */
+  border: none; /* Pas de bordure */
+  padding: 12px 20px; /* Espacement interne */
+  border-radius: 30px; /* Coins arrondis */
+  transition: all 0.3s ease; /* Transition fluide */
+  cursor: pointer; /* Curseur en main */
+  text-transform: uppercase; /* Texte en majuscules */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* Ombre pour un effet surélevé */
+}
+
+/* Bouton au survol */
+.choose-container .btn:hover {
+  background: #007bff; /* Couleur changeante au survol */
+  transform: translateY(-3px); /* Légère élévation */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée */
+}
+
+/* Bouton à l'état actif (clic) */
+.choose-container .btn:active {
+  transform: translateY(1px); /* Réduction de la hauteur */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre réduite */
+}
+
+/* Adaptation pour les écrans plus petits */
+@media (max-width: 768px) {
+  .choose-container {
+      padding: 20px 15px; /* Réduire l'espacement interne */
+  }
+
+  .choose-container h1 {
+      font-size: 1.8rem; /* Réduire la taille du titre */
+  }
+
+  .choose-container .btn {
+      font-size: 1rem; /* Réduire la taille des boutons */
+  }
+}

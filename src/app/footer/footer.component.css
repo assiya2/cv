@@ -1,0 +1,45 @@
+/* Style général pour la mise en page */
+body {
+  display: flex;
+  flex-direction: column; /* Organiser les éléments en colonne */
+  min-height: 90vh; /* Assurez que le corps couvre toute la hauteur de la fenêtre */
+  margin: 0; /* Supprime les marges par défaut */
+}
+
+/* Le conteneur principal du contenu */
+main {
+  flex: 1; /* Permet à la partie principale de s'étendre pour remplir l'espace */
+}
+
+/* Style général du footer */
+footer {
+  background-color: #0960e398; /* Fond sombre */
+  color: #030303; /* Texte noir */
+  padding: 4px 20px;
+  text-align: center;
+  font-size: 1rem;
+  position: relative; /* Le footer est positionné normalement */
+  bottom:0; /* Assure qu'il reste en bas dans le cas d'un contenu insuffisant */
+  width: 1460px;
+}
+
+/* Style pour les liens dans le footer */
+footer a {
+  color: #100d0d;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 600;
+}
+
+footer a:hover {
+  color: #007bff; /* Changer la couleur au survol */
+  text-decoration: underline; /* Ajouter un soulignement */
+}
+
+/* Style pour la ligne de séparation */
+footer .divider {
+  margin: 20px 0;
+  border-top: 1px solid #555; /* Ligne de séparation claire */
+}
+
+

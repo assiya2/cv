@@ -1,0 +1,99 @@
+<div class="cv-container"  [ngStyle]="{'background-color': cvData.backgroundColor}" #cvElement>
+    <!-- Colonne gauche -->
+    <div class="left-column">
+      <!-- Photo -->
+      <div class="photo-section">
+        <div class="cv-photo">
+            <img [src]="cvData.photo" alt="Photo" />
+          </div>
+        <div class="contact-info">
+          <p><i class="fas fa-envelope"></i> {{ cvData.email }}</p>
+          <p><i class="fas fa-phone"></i> {{ cvData.phone }}</p>
+          <p><i class="fas fa-map-marker-alt"></i> {{ cvData.address }}</p>
+        </div>
+      </div>
+      <div class="section" class="bullet-list">
+        <h2 [ngStyle]="{ 'color': cvData.sectionTitleColor, 'font-family': cvData.fontFamily }"> Compétence
+        </h2>
+        <ul>
+          <li *ngFor="let skill of cvData.skills">{{ skill.name }}</li>
+        </ul>
+      </div>
+      
+      <div class="section">
+        <h2 [ngStyle]="{ 'color': cvData.sectionTitleColor, 'font-family': cvData.fontFamily }"> Langues
+        </h2>
+        <ul>
+          <li *ngFor="let lang of cvData.languages">
+            {{ lang.language }} - {{ lang.level }}
+          </li>
+        </ul>
+    </div>
+        <div class="section" class="bullet-list">
+            <h2 [ngStyle]="{ 'color': cvData.sectionTitleColor, 'font-family': cvData.fontFamily }"> Centre d'interest
+            </h2>
+            <ul>
+              <li *ngFor="let interest of cvData.interests">{{ interest }}</li>
+            </ul>
+          </div>
+    </div>
+   <div
+    class="cv-right-section"
+    [style.background-color]="cvData.mainSectionBackgroundColor"
+    [style.color]="cvData.rightSectionTextColor" class="right-column">
+      <!-- Nom et profil -->
+      <div class="header">
+        <h1>{{ cvData.name }}</h1>
+        <p class="profile">{{ cvData.profile }}</p>
+      </div>
+  
+      <!-- Formation -->
+      <div class="section">
+        <h2 [ngStyle]="{ 'color': cvData.sectionTitleColor, 'font-family': cvData.fontFamily }" class="section-title" [style.background-color]="cvData.sectionTitleBackgroundColor"
+        [style.color]="cvData.sectionTitleTextColor"> Formation
+        </h2>
+        <div *ngFor="let edu of cvData.education">
+          <h4>{{ edu.degree }}</h4>
+          <p>{{ edu.school }} - {{ edu.year }}</p>
+        </div>
+      </div>
+      <div class="section">
+        <h2 [ngStyle]="{ 'color': cvData.sectionTitleColor, 'font-family': cvData.fontFamily }" class="section-title" [style.background-color]="cvData.sectionTitleBackgroundColor"
+        [style.color]="cvData.sectionTitleTextColor"> Expériences
+        </h2>
+        <div *ngFor="let exp of cvData.experience">
+          <h4>{{ exp.title }} - {{ exp.company }}</h4>
+          <p>{{ exp.year }}</p>
+        </div>
+      <!-- Projets -->
+      <div class="section" class="bullet-list">
+        <h2 [ngStyle]="{ 'color': cvData.sectionTitleColor, 'font-family': cvData.fontFamily }" class="section-title" [style.background-color]="cvData.sectionTitleBackgroundColor"
+        [style.color]="cvData.sectionTitleTextColor"> Projets
+        </h2>
+        <div *ngFor="let proj of cvData.projects">
+          <h4>{{ proj.title }}</h4>
+          <p>{{ proj.description }}</p>
+        </div>
+      </div>
+      <div *ngIf="cvData.customSections.length > 0" class="bullet-list">
+        <div *ngFor="let custom of cvData.customSections" >
+          <div class="section-content" class="bullet-list">
+            <h2 [ngStyle]="{ 'color': cvData.sectionTitleColor, 'font-family': cvData.fontFamily }" class="section-title" [style.background-color]="cvData.sectionTitleBackgroundColor"
+            [style.color]="cvData.sectionTitleTextColor"> {{ custom.title }}
+            </h2>
+            <p>{{ custom.content }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+  
+</div><br><br>
+
+<div>
+  <button (click)="previewCV(cvElement)">Voir le CV</button>
+  <button  (click)="shareCV()">Partager</button>
+
+  <button (click)="downloadPDFAndSave(cvElement)">Télécharger en PDF et envoyer-le au rh</button>
+</div>

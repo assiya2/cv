@@ -1,0 +1,79 @@
+<div class="template-list" *ngIf="selectedTemplateIndex === null">
+    <h2>Choisissez un modèle pour commencer</h2>
+    <div class="templateBody">
+    <div class="template-row">
+      <div
+        *ngFor="let template of templates; let i = index"
+        class="template-item"
+        (click)="selectTemplate(i)"
+        [class.selected]="i === selectedTemplateIndex"
+      >
+        <img [src]="template.image" [alt]="template.name" />
+        <p>{{ template.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="letter-container" *ngIf="selectedTemplateIndex !== null">
+    <h2>Personnalisation et Aperçu</h2>
+    <div class="flex-container">
+      <!-- Formulaire de personnalisation -->
+      <form class="customization-form">
+        <h3>Personnalisation de la lettre</h3>
+        <div>
+          <label>Nom :</label>
+          <input type="text" [(ngModel)]="letterData.name" name="name" />
+        </div>
+        <div>
+          <label>Adresse :</label>
+          <input type="text" [(ngModel)]="letterData.address" name="address" />
+        </div>
+        <div>
+          <label>Email :</label>
+          <input type="email" [(ngModel)]="letterData.email" name="email" />
+        </div>
+        <div>
+          <label>Destination :</label>
+          <input type="text" [(ngModel)]="letterData.destination" name="destination" />
+        </div>
+        <div>
+          <label>Salutation :</label>
+          <input type="text" [(ngModel)]="letterData.salutation" name="salutation" />
+        </div>
+        <div>
+          <label>Date :</label>
+          <input type="date" [(ngModel)]="letterData.date" name="date" />
+        </div>
+        <div>
+          <label>Objet :</label>
+          <input type="text" [(ngModel)]="letterData.subject" name="subject" />
+        </div>
+        <div>
+          <label>Paragraphe principal :</label>
+          <textarea [(ngModel)]="letterData.mainParagraph" name="mainParagraph"></textarea>
+        </div>
+        <div class="style-controls">
+          <label>Police :</label>
+          <select [(ngModel)]="userStyle.font" name="font">
+            <option value="'Arial', sans-serif">Arial</option>
+            <option value="'Georgia', serif">Georgia</option>
+            <option value="'Courier New', monospace">Courier New</option>
+            <option value="'Times New Roman', serif">Times New Roman</option>
+          </select>
+          <label>Couleur de texte :</label>
+          <input type="color" [(ngModel)]="userStyle.color" name="color" />
+          <label>Couleur de fond :</label>
+          <input type="color" [(ngModel)]="userStyle.backgroundColor" name="backgroundColor" />
+        </div>
+      </form>
+  
+      <!-- Aperçu de la lettre -->
+      <div class="letter-preview">
+        <ng-container [ngSwitch]="selectedTemplateIndex">
+          <app-letter-template1 *ngSwitchCase="0" [letterData]="letterData" [userStyle]="userStyle"></app-letter-template1>
+          <app-letter-template2 *ngSwitchCase="1" [letterData]="letterData" [userStyle]="userStyle"></app-letter-template2>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,409 @@
+/* Style général */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+form {
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Grille pour les champs du formulaire */
+form > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="file"],
+input[type="color"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  background-color: #f9f9f9;
+}
+
+textarea {
+  resize: vertical;
+  height: 80px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Alignement des boutons */
+button[type="submit"] {
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Sections */
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+/* Classes pour les modèles */
+.template-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.template-item {
+  cursor: pointer;
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.template-item img {
+  width: 100px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.template-item p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.template-item.selected {
+  border-color: #007bff;
+  background-color: #eef6ff;
+}
+
+/* Personnalisation de la section */
+.customization-form {
+  display: grid;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.customization-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+.customization-form input[type="color"] {
+  width: 50px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Aperçu du CV */
+.cv-preview {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #fafafa;
+  margin-bottom: 20px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  form {
+    padding: 15px;
+  }
+
+  .template-item img {
+    width: 80px;
+    height: 100px;
+  }
+}
+
+/* Style général du formulaire */
+.customization-form {
+  font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+  width: 100%;
+  max-width: 350px; /* Formulaire étroit */
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f4f7fa; /* Fond clair et apaisant */
+  border-radius: 12px; /* Coins arrondis */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+ 
+}
+
+/* Titres */
+h3 {
+  font-size: 1.1em;
+  margin-top: 0;
+  color: #1abc9c; /* Vert doux */
+  font-weight: normal;
+}
+
+/* Style des labels */
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  font-size: 0.95em;
+  color: #34495e; /* Bleu gris */
+}
+
+/* Style des champs input[type="color"] et select */
+input[type="color"],
+select {
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #dce1e7; /* Bordure subtile */
+  border-radius: 8px; /* Coins arrondis */
+  font-size: 0.95em;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.3s, box-shadow 0.3s; /* Transition fluide */
+}
+
+/* Interaction au survol */
+input[type="color"]:hover,
+select:hover {
+  border-color: #3498db; /* Bordure bleue */
+}
+
+/* Interaction au focus */
+input[type="color"]:focus,
+select:focus {
+  border-color: #3498db; /* Bordure bleue au focus */
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.3); /* Ombre douce */
+  outline: none;
+}
+
+/* Taille ajustée des champs */
+input[type="color"],
+select {
+  height: 35px; /* Hauteur uniforme */
+}
+
+/* Espacement entre les sections */
+div {
+  margin-bottom: 20px;
+}
+
+.cv-container {
+  display: flex;
+  gap: 20px; /* Espacement entre le formulaire et l'aperçu */
+}
+
+.customization-form {
+  flex: 1; /* Taille du formulaire */
+  max-width: 30%; /* Limite la largeur */
+  padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  
+
+}
+
+.cv-preview {
+  flex: 1; /* Taille de l'aperçu */
+  max-width: 60%; /* Limite la largeur */
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow-y: auto;
+  height: auto; /* Ajuste la hauteur */
+}
+
+.template-list {
+  padding: 30px;
+  background-color: #eef2f7; /* Couleur de fond douce */
+  border: 1px solid #d4d8de; /* Bordure discrète */
+  border-radius: 15px; /* Coins légèrement plus arrondis */
+  max-width: 70%; /* Largeur maximale plus équilibrée */
+  margin: 20px auto; /* Centrer avec espacement vertical */
+  text-align: center; /* Centrer le contenu */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Ombre subtile pour le conteneur */
+}
+
+.template-list h2 {
+  font-size: 32px; /* Taille augmentée pour le titre */
+  margin-bottom: 30px; /* Espacement plus important */
+  color: #2c3e50; /* Couleur bleu-gris */
+  font-weight: bold; /* Texte plus marqué */
+}
+
+.template-row {
+  display: flex; /* Disposition flexible */
+  flex-wrap: wrap; /* Permet de passer à la ligne */
+  gap: 30px; /* Espacement accru entre les éléments */
+  justify-content: center; /* Centrer les éléments horizontalement */
+}
+
+.template-item {
+  width: 220px; /* Taille légèrement plus grande */
+  padding: 20px; /* Plus d'espace interne */
+  background-color: #ffffff; /* Fond blanc pur */
+  border: 1px solid #e0e0e0; /* Bordure légère */
+  border-radius: 15px; /* Coins arrondis pour modernité */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08); /* Ombre subtile */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation fluide */
+}
+
+.template-item:hover {
+  transform: scale(1.1); /* Effet d'agrandissement plus marqué */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Ombre plus importante au survol */
+}
+
+.template-item.selected {
+  border: 4px solid #3498db; /* Bordure bleue plus vive */
+  box-shadow: 0 12px 24px rgba(52, 152, 219, 0.3); /* Ombre bleutée pour le focus */
+}
+
+.template-item img {
+  width: 100%; /* L'image remplit la largeur */
+  height: 250px; /* Hauteur augmentée */
+  object-fit: cover; /* Recadrage pour homogénéité */
+  border-radius: 12px; /* Coins arrondis */
+  margin-bottom: 15px; /* Espacement sous l'image */
+  transition: transform 0.3s ease; /* Animation sur l'image */
+}
+
+.template-item:hover img {
+  transform: scale(1.05); /* Légère animation d'agrandissement sur l'image */
+}
+
+.template-item p {
+  font-size: 18px; /* Texte légèrement plus grand */
+  color: #333; /* Couleur foncée pour le texte */
+  text-align: center;
+  margin: 0;
+  font-weight: 600; /* Texte encore plus marqué */
+}
+
+
+
+
+/* Style général du formulaire */
+.customization-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 0px;
+  border-radius: 10px;
+  background: #f9f9f9;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style des champs de formulaire */
+.customization-form div {
+  display: nane;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+label {
+  font-size: 0.9rem;
+  margin-bottom: 3px;
+  font-weight: bold;
+  text-align: center;
+}
+
+select,
+input[type="color"] {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+select:hover,
+input[type="color"]:hover {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+}
+
+/* Style des titres et des sections */
+h3 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  text-align: center;
+  color: #333;
+  text-transform: uppercase;
+}
+
+/* Style des interactions */
+input[type="color"]::-webkit-color-swatch {
+  border-radius: 50%;
+  padding: 5px;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  text-align-last: center;
+}
+
+select option {
+  text-align: center;
+}
+
+/* Mise en page globale du formulaire */
+form {
+  max-width: 600px;
+  
+}

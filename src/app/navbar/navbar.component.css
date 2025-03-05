@@ -1,0 +1,53 @@
+/* Style général de la navbar */
+nav {
+  background: linear-gradient(135deg, rgb(18, 42, 200), #5665f0b4); /* Dégradé de couleurs pour la navbar */
+  padding: 20px 20px; /* Espacement de la navbar */
+  display: flex;
+  margin: 0px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.2); /* Ombre subtile sous la navbar */
+}
+
+/* Style du logo dans la navbar */
+nav .logo {
+  font-size: 80px;
+  color: rgb(245, 245, 252);
+  font-weight: bold;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}   
+
+nav .logo img {
+  height: 80px; /* Taille du logo */
+  margin-right: 5px; /* Espace entre le logo et le texte */
+}
+
+/* Style des liens de la navbar */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0 15px; /* Espacement entre les éléments de la navbar */
+}
+
+/* Style des liens (a) */
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  transition: all 0.3s ease; /* Animation pour un changement de couleur fluide */
+}
+
+/* Effet au survol des liens */
+nav a:hover {
+  color: #315bf5; /* Changement de couleur du texte au survol */
+  text-decoration: underline;
+}

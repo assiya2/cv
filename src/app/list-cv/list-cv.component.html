@@ -1,0 +1,14 @@
+<div class="cv-list">
+    <h1>Liste des CV</h1>
+    <ul>
+      <li *ngFor="let cv of cvs" (click)="viewCV(cv)">
+        <h3>{{ cv.name }}</h3>
+        <p>{{ cv.email }}</p>
+        <p>{{ cv.jobTitle }}</p>
+        <a *ngIf="cv.pdfPath && cv.pdfPath !== ''" [href]="getSafePdfUrl(cv.pdfPath)" target="_blank">
+            Voir le CV
+          </a>
+      </li>
+    </ul>
+  </div>
+  

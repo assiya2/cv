@@ -1,0 +1,30 @@
+<div
+ 
+  [ngStyle]="{
+    'font-family': userStyle.font,
+    'background-color': userStyle.backgroundColor,
+    'color': userStyle.color
+  }"
+>
+
+<div class="letter-template">
+    <div class="letter-header">
+      <p style="text-align: right;">
+        <strong>À :</strong> {{ letterData.destination }}<br />
+        <strong>De :</strong> {{ letterData.name }}<br />
+        <strong>Adresse :</strong> {{ letterData.address }}<br />
+        <strong>Email :</strong> {{ letterData.email }}<br />
+        <strong>Date :</strong> {{ letterData.date }}
+      </p>
+    </div>
+  
+    <h2 class="letter-title" style="text-align: center;">{{ letterData.subject }}</h2>
+  
+    <div class="letter-content" style="text-align: justify;">
+      <p>{{ letterData.salutation }}</p>
+      <p>{{ letterData.mainParagraph }}</p>
+      <p>Cordialement,</p>
+      <p><strong>{{ letterData.name }}</strong></p>
+    </div>
+  </div>
+  <button class="download-btn" (click)="downloadPDF()">Télécharger en PDF</button>

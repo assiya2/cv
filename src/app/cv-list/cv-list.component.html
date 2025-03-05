@@ -1,0 +1,162 @@
+<div class="dashboard">
+  <!-- Barre latérale -->
+  <nav class="sidebar">
+    <h2>Dashboard RH</h2>
+    <ul>
+      <li><a href="#cv-list">Liste des CVs</a></li>
+      <li><a href="#search">Recherche de CVs</a></li>
+      <li><a href="#weights">Pondération des critères</a></li>
+      <li><a href="#results">Résultats</a></li>
+      <li><a href="#comparison">Comparaison</a></li>
+      
+    </ul>
+  </nav>
+
+  <!-- Contenu principal -->
+  <div class="main-content">
+    <!-- Pondération des critères -->
+    <section id="weights">
+      <h3>Pondération des critères</h3>
+      <form (ngSubmit)="updateWeights(weights)">
+        <label>
+          Pondération pour l'expérience :
+          <input type="range" min="1" max="10" [(ngModel)]="weights.experience" name="experience" />
+          <span>{{ weights.experience }}</span> <!-- Affiche la valeur actuelle du slider -->
+        </label>
+    
+        <label>
+          Pondération pour les compétences :
+          <input type="range" min="1" max="10" [(ngModel)]="weights.skills" name="skills" />
+          <span>{{ weights.skills }}</span>
+        </label>
+    
+        <label>
+          Pondération pour les projets :
+          <input type="range" min="1" max="10" [(ngModel)]="weights.projects" name="projects" />
+          <span>{{ weights.projects }}</span>
+        </label>
+    
+        <button type="submit">Mettre à jour</button>
+      </form>
+    </section>
+    
+
+
+    <!-- Recherche de CVs -->
+    <section id="search">
+      <h3>Recherche des CVs</h3>
+      <form (ngSubmit)="searchCVs()">
+        <label>
+          Compétence :
+          <input type="text" [(ngModel)]="searchCriteria.skills" name="skills" placeholder="Ex: Angular" />
+        </label>
+        <label>
+          Projet :
+          <input type="text" [(ngModel)]="searchCriteria.project" name="project" placeholder="Ex: Gestion de tâches" />
+        </label>
+        <button type="submit">Rechercher</button>
+      </form>
+    </section>
+
+    <!-- Résultats de la recherche -->
+    <section id="results" *ngIf="!loading && filteredCvs.length > 0">
+      <h3>Résultats de la recherche</h3>
+      <ul>
+        <li *ngFor="let cv of filteredCvs">
+          <div class="cv-header">
+            <a [href]="'http://localhost:5000/' + cv.pdfPath" target="_blank">{{ cv.name }}</a>
+            <button (click)="toggleDetails(cv)">
+              {{ cv.showDetails ? 'Masquer les détails' : 'Afficher les détails' }}
+            </button>
+          </div>
+          <div *ngIf="cv.showDetails" class="cv-details">
+            <table>
+              <tbody>
+                <tr>
+                  <th>Email</th>
+                  <td>{{ cv.email }}</td>
+                </tr>
+                <tr>
+                  <th>Score total</th>
+                  <td>{{ cv.score }}</td>
+                </tr>
+                <tr>
+                  <th>Points pour l'expérience</th>
+                  <td>{{ cv.experiencePoints }}</td>
+                </tr>
+                <tr>
+                  <th>Points pour les compétences</th>
+                  <td>{{ cv.skillsPoints }}</td>
+                </tr>
+                <tr>
+                  <th>Points pour les projets</th>
+                  <td>{{ cv.projectPoints }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <button>
+            <button class="contact-button" (click)="openContactModal(cv)">Contacter</button>
+
+          </button>
+        </li>
+      </ul>
+    </section>
+    <div class="modal" [class.show]="showModal">
+      <div class="modal-content">
+        <span class="close" (click)="closeContactModal()">&times;</span>
+        <h2>Envoyer un message à {{ selectedCv?.name }}</h2>
+        <form (ngSubmit)="sendMessage()">
+          <label for="message">Message</label>
+          <textarea [(ngModel)]="message" name="message" id="message" rows="4" required></textarea>
+          <p>Email destinataire : {{ selectedCv?.email }}</p> <!-- Email récupéré automatiquement -->
+          <button type="submit">Envoyer</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Comparaison des CVs -->
+    <section id="comparison">
+      <section id="comparison">
+        <h3>Comparaison des CVs</h3>
+        <div *ngIf="filteredCvs.length > 0">
+          <ul>
+            <li *ngFor="let cv of filteredCvs">
+              <input type="checkbox" [(ngModel)]="cv.selected" /> Sélectionner
+              <a [href]="'http://localhost:5000/' + cv.pdfPath" target="_blank">{{ cv.name }}</a>
+            </li>
+          </ul>
+          <button (click)="compareSelectedCVs()">Comparer les CVs sélectionnés</button>
+      
+          <!-- Canvas pour afficher le graphique -->
+          <div *ngIf="alertMessage" class="alert" [ngClass]="{'success': alertType === 'success', 'error': alertType === 'error'}">
+            {{ alertMessage }}
+          </div>
+          <canvas id="cvComparisonChart" width="400" height="200"></canvas>
+        </div>
+      </section>
+      
+    </section>
+    <div  id= "cv-list"class="cv-list">
+      <h1>Liste des CV</h1>
+      <ul>
+        <li *ngFor="let cv of cvs">
+          <h3>{{ cv.name }}</h3>
+          <p>{{ cv.email }}</p>
+          <p>{{ cv.jobTitle }}</p>
+          <!-- Affiche le lien seulement si cv.pdfPath est défini et non vide -->
+          <a *ngIf="cv.pdfPath && cv.pdfPath !== ''" [href]="getSafePdfUrl(cv.pdfPath)" target="_blank">
+            Voir le CV
+          </a>
+         
+
+        </li>
+      </ul>
+      
+   
+    </div>
+    <!-- Liste des CVs disponibles -->
+   
+  </div>
+</div>
+

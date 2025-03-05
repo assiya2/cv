@@ -1,0 +1,185 @@
+/* Style général */
+.background {
+  background-color: #e9ecef; /* Couleur de fond générale */
+  height: 100vh; /* Prend toute la hauteur de l'écran */
+ 
+  align-items: center; /* Centrer verticalement */
+  justify-content: center; /* Centrer horizontalement */
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 120000px; /* Limite maximale pour éviter un étirement excessif */
+  height: 100%; /* Ajustez la hauteur pour équilibrer les colonnes */
+}
+
+/* Colonne gauche : texte */
+.text-container {
+  flex: 1; /* Prend 50% de l'espace */
+  background-color: #1505fa9a; /* Couleur bleue */
+  color: #fff; /* Texte en blanc */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
+/* Appliquer une police par défaut à toute la page */
+
+
+/* Style des titres */
+.text-container h1 {
+  font-family: 'Poppins', sans-serif; /* Police personnalisée */
+  font-size: 2rem; /* Taille du titre */
+  font-weight: 60; /* Poids de la police (600 pour semi-gras) */
+  background-color: #fdfeff29;
+  color: #02279d; /* Couleur du titre */
+  text-align: left; /* Centrer le texte */
+  margin-bottom: 10px; /* Espacement sous le titre */
+ /* Tout en majuscules */
+}
+
+/* Style des descriptions */
+.text-container .description {
+  font-family: 'Poppins',  sans-serif; /* Police personnalisée */
+  font-size: 1rem; /* Taille du texte */
+  /* Poids du texte (400 pour normal) */
+  line-height: 1.8; /* Hauteur de ligne pour un espacement confortable */
+  color: #080808; /* Couleur légèrement grisée */
+  text-align: justify; /* Texte justifié */
+}
+.text-container .description-image {
+  display: block; /* Pour que l'image soit un élément de bloc */
+  margin: 0 auto 1rem; /* Centrer l'image et ajouter un espace en dessous */
+  width: 100%; /* Ajuster la taille à 100% du conteneur */
+  max-width: 300px; /* Taille maximale pour éviter qu'elle ne devienne trop grande */
+  border-radius: 8px; /* Coins arrondis pour un effet visuel agréable */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Légère ombre portée */
+}
+.text-container {
+  flex: 1; /* Prend 50% de l'espace */
+  background-color: #1505fa9a; /* Couleur de fond bleue, sert de fallback */
+  background-image: url('/assets/images/back.webp');
+
+  background-size: cover; /* Assure que l'image couvre tout le conteneur */
+  background-position: center; /* Centre l'image dans le conteneur */
+  background-repeat: no-repeat; /* Empêche la répétition de l'image */
+  color: #0b0101; /* Texte en blanc */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
+
+
+/* Style des boutons */
+.buttons-container .btn {
+  font-family: 'Poppins', Arial, sans-serif; /* Police personnalisée */
+  font-size: 1.1rem; /* Taille du texte */
+  font-weight: 600; /* Texte semi-gras */
+  letter-spacing: 1px; /* Espacement des lettres */
+  text-transform: uppercase; /* Tout en majuscules */
+}
+
+/* Colonne droite : boutons */
+.buttons-container {
+  flex: 1; /* Prend 50% de l'espace */
+  background-color: #f5f8fb; /* Couleur gris foncé */
+  color: #fff; /* Texte en blanc */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+/* Colonne droite : boutons */
+.buttons-container {
+  flex: 1; /* Prend 50% de l'espace */
+  background-color: #dbebfb; /* Couleur gris clair */
+  color: #fff; /* Texte en blanc */
+  display: flex; /* Active Flexbox */
+  flex-direction: row; /* Alignement des enfants sur une seule ligne */
+  align-items: center; /* Centre verticalement */
+  justify-content: center; /* Centre horizontalement */
+  padding: 20px;
+  gap: 20px; /* Espace entre les boutons */
+}
+
+/* Style du texte */
+.text-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.text-container .description {
+  font-size: 1.25rem;
+  line-height: 1.8;
+}
+
+/* Style des boutons */
+.buttons-container .btn {
+  width: 220px; /* Largeur fixe */
+  padding: 12px 20px; /* Espacement interne */
+  font-size: 1.2rem; /* Taille du texte */
+  font-weight: bold; /* Texte en gras */
+  border-radius: 30px; /* Coins arrondis */
+  text-transform: uppercase; /* Texte en majuscules */
+  transition: all 0.3s ease; /* Transition fluide */
+  cursor: pointer; /* Curseur en main */
+}
+
+/* Bouton principal (Inscription) */
+.btn-primary {
+  background-color: #1b92fa; /* Vert */
+  color: #fff; /* Texte blanc */
+  border: none; /* Suppression de la bordure */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre */
+}
+
+.btn-primary:hover {
+  background-color: #1b92fa; /* Vert foncé au survol */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Ombre renforcée */
+}
+
+/* Bouton secondaire (Connexion) */
+.btn-outline-primary {
+  background-color: #1b92fa; /* Vert */
+  color: #fff; /* Texte blanc */
+  border: none; /* Suppression de la bordure */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre */
+}
+
+.btn-outline-primary:hover {
+  background-color: #1b92fa;  /* Vert foncé au survol */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Ombre renforcée */
+}
+
+/* Animation lors d'un clic */
+.buttons-container .btn:active {
+  transform: scale(0.95); /* Réduction légère de la taille */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Réduction de l'ombre */
+}
+
+
+/* Responsiveness (écrans plus petits) */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Les colonnes passent en mode vertical */
+    height: auto;
+  }
+
+  .text-container,
+  .buttons-container {
+    flex: none;
+    width: 100%;
+  }
+}
+/* Animation d'écriture */
+
+
+
+

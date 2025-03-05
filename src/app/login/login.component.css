@@ -1,0 +1,91 @@
+/* Style pour le conteneur de la page */
+div {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Style pour le titre de la page */
+h2 {
+  text-align: center;
+  color: #444;
+  margin-bottom: 25px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* Style pour le formulaire */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Style pour les labels */
+label {
+  font-size: 16px;
+  color: #555;
+  font-weight: 500;
+}
+
+/* Style pour les champs de texte (inputs) */
+input {
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+/* Focus sur les champs de texte */
+input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+/* Style pour le bouton de soumission */
+button {
+  padding: 14px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+}
+
+/* Hover sur le bouton de soumission */
+button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+/* Style pour le message de réponse */
+p {
+  text-align: center;
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+/* Style pour le lien vers l'inscription */
+a {
+  color: #3498db;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #2980b9;
+}

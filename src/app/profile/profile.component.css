@@ -1,0 +1,140 @@
+.profile-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fafafa;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-header {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .profile-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+  }
+  
+  .user-info .user-details p {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    margin: 10px 0;
+  }
+  
+  .cv-history .cv-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .cv-history .cv-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ecf0f1;
+    font-size: 1.1rem;
+    color: #34495e;
+  }
+  
+  .cv-history .cv-list li:last-child {
+    border-bottom: none;
+  }
+  
+  .empty {
+    font-size: 1.1rem;
+    color: #bdc3c7;
+    font-style: italic;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ecf0f1;
+    border-radius: 8px;
+    background-color: #f4f6f7;
+    color: #2c3e50;
+  }
+  
+  .form-actions {
+    margin-top: 15px;
+  }
+  
+  .btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn.save {
+    background-color: #3498db;
+  }
+  
+  .btn.cancel {
+    background-color: #4599f4;
+  }
+  
+  .btn.edit {
+    background-color: #3d91f8;
+  }
+  
+  .btn.logout {
+    background-color: #5093f7;
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+  }
+  
+  .btn:hover {
+    opacity: 0.85;
+  }
+  
+  .btn:focus {
+    outline: none;
+  }
+  
+  .user-info .user-details button {
+    background-color: #2980b9;
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 15px;
+  }
+  
+  .user-info .user-details button:hover {
+    background-color: #3498db;
+  }
+  
